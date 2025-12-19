@@ -4,7 +4,17 @@
  */
 
 const OLLAMA_HOST = process.env.OLLAMA_HOST || 'http://localhost:11434';
-const MODEL = 'functiongemmanotexistkkkkkkkk';
+const MODEL =
+  // 'gemini-3-flash-preview:cloud'; // "error":"unauthorized","signin_url":"https://ollama.com/connect?name=MacBookPro24.local\u0026key=c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU1ZTXBOM2ZZTkJLSzZoTTVHZG5rdmtpSDJqUHh5OVIrZE1OQnNXL2FsdDg"
+  // 'functiongemma:270m';
+  // 'functiongemma';
+  // 'olmo-3:7b';  // https://arxiv.org/abs/2512.13961, "error":"registry.ollama.ai/library/olmo-3:7b does not support tools"
+  // 'olmo-3:32b'; // https://arxiv.org/abs/2512.13961, "error":"registry.ollama.ai/library/olmo-3:32b does not support tools"
+  // 'qwen2.5:7b';
+  // 'nemotron-3-nano:30b'; // Nvidia model, "error":"model runner has unexpectedly stopped, this may be due to resource limitations or an internal error
+  // 'deepseek-r1:14b'; // "error":"registry.ollama.ai/library/deepseek-r1:14b does not support tools"
+  'gpt-oss:20b';
+
 
 // Mock tool functions
 function getWeather(city: string): string {
@@ -74,6 +84,7 @@ async function chat(messages: Message[]): Promise<ChatResponse> {
 
 async function main(city: string, topic: string) {
   const messages: Message[] = [{ role: 'user', content: `What is the ${topic} of ${city}?` }];
+  console.log('Model:', MODEL);
   console.log('Prompt:', messages[0].content);
 
   // Initial chat call

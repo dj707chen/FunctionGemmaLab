@@ -5,6 +5,12 @@ https://github.com/google-deepmind/gemma
 https://github.com/google-gemini/gemma-cookbook/blob/main/FunctionGemma/%5BFunctionGemma%5DFinetune_FunctionGemma_270M_for_Mobile_Actions_with_Hugging_Face.ipynb
 https://ollama.com/library/functiongemma
 
+## Prepare models
+```shell
+ollama pull functiongemma:270m
+```
+Run Ollama
+
 ## Tooling
 
 For Python
@@ -19,5 +25,7 @@ For Typescript
 ```shell
 npm install
 npm run tool
-ollama pull functiongemma
-```
+
+# Test runs
+npm run tool news beijing
+npm run tool weather beijing```
