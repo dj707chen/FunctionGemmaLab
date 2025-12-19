@@ -4,18 +4,19 @@
  */
 
 const OLLAMA_HOST = process.env.OLLAMA_HOST || 'http://localhost:11434';
-const MODEL = 'functiongemma';
+const MODEL = 'functiongemmanotexistkkkkkkkk';
 
+// Mock tool functions
 function getWeather(city: string): string {
   console.log('getWeather:')
   return JSON.stringify({ city: city + "-Normal IL", temperature: 22, unit: 'celsius', condition: 'sunny' });
 }
-
 function getNews(city: string): string {
   console.log('getNews:')
   return JSON.stringify({ city: city + "-Normal IL", headline: "Breaking News in " + city, details: "Details about the news in " + city });
 }
 
+// Define the tool functions
 const tools = [
   {
     type: 'function',
@@ -75,29 +76,34 @@ async function main(city: string, topic: string) {
   const messages: Message[] = [{ role: 'user', content: `What is the ${topic} of ${city}?` }];
   console.log('Prompt:', messages[0].content);
 
+  // Initial chat call
   const response = await chat(messages);
 
+  // Check if the model requested a tool function call
   if (response.message.tool_calls?.length) {
     const tool = response.message.tool_calls[0];
     console.log('tool=', tool);
     console.log(`Calling: ${tool.function.name}(${JSON.stringify(tool.function.arguments)})\n`);
 
-    let result: string = '';
+    // Call the tool function
+    let toolFunctionResult: string = '';
     if (tool.function.name == "get_weather")
-      result = getWeather(tool.function.arguments.city)
+      toolFunctionResult = getWeather(tool.function.arguments.city)
     else if (tool.function.name == "get_news")
-      result = getNews(tool.function.arguments.city)
-    console.log('Function Result:', result);
+      toolFunctionResult = getNews(tool.function.arguments.city)
+    console.log('Function toolFunctionResult:', toolFunctionResult);
 
-    if (!result) {
-      console.log('Response:', response.message.content);
-      throw new Error(`No result from tool: ${tool.function.name}`);
+    if (!toolFunctionResult) {
+      // No tool response, just return the model's response
+      console.log('Model did not ask for tool function call. Response:', response.message.content);
     } else {
-    messages.push(response.message);
-    messages.push({ role: 'tool', content: result });
+      // Append tool response and get final answer
+      messages.push(response.message);
+      messages.push({ role: 'tool', content: toolFunctionResult });
 
-    const final = await chat(messages);
-    console.log('Called tool,Response:', final.message.content);
+      // Get final response from model
+      const final = await chat(messages);
+      console.log('Called tool, response:', final.message.content);
   }
 }
 }
