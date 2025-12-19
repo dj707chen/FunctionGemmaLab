@@ -1,0 +1,78 @@
+dist/
+
+# Logs
+logstash.out
+pretty-print.out
+logs/
+*.log
+npm-debug.log*
+
+#Emacs temp files
+*~
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Code coverage
+coverage/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Whitesource
+ws-*.json
+ws-log-npm-report
+
+# Terraform
+terraform.tfstate*
+
+# Mac OS X stuff
+.DS_Store
+
+# heapdumps
+heapdump-*
+
+# IDE directories
+.idea/
+.run/
+.history/
+
+# yalc
+.yalc
+yalc.lock
+
+# kube-port-mapper config file
+kube-port-map-config.yml
+
+# Troubleshooting files
+service-definitions.tsv
+
+# dotenv environment variable override files
+.env*.local
+
+# eslint
+.eslintcache
+
+# vitepress
+docs/.vitepress/cache
+
+# profiling
+profiling/
+/.vs
+
+# other package managers
+package-lock.json
+yarn.lock

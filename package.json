@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "main": "src/server.ts",
     "scripts": {
+        "tool": "tsx src/tool.ts",
         "server:build": "tsc",
         "server:build:watch": "tsc --watch",
         "server:dev": "tsx src/server.ts",
