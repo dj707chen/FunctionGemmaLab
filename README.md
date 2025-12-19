@@ -7,9 +7,17 @@ https://ollama.com/library/functiongemma
 
 ## Tooling
 
+For Python
 ```shell
 # https://docs.astral.sh/uv/getting-started/installation/
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 uv run python rcbentch/run_all_tests.py --suite functiongemma_270m_tuning_v1
+```
+
+For Typescript
+```shell
+npm install
+npm run tool
+ollama pull functiongemma
 ```
