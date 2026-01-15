@@ -1,8 +1,9 @@
 # FunctionGemmaLab
 
-https://github.com/google-deepmind/gemma
-https://github.com/google-gemini/gemma-cookbook/blob/main/FunctionGemma/%5BFunctionGemma%5DFinetune_FunctionGemma_270M_for_Mobile_Actions_with_Hugging_Face.ipynb
-https://ollama.com/library/functiongemma
+For information on Google's FunctionGemma, refer:
+- https://github.com/google-deepmind/gemma
+- https://ollama.com/library/functiongemma
+- https://github.com/google-gemini/gemma-cookbook/blob/main/FunctionGemma/%5BFunctionGemma%5DFinetune_FunctionGemma_270M_for_Mobile_Actions_with_Hugging_Face.ipynb
 
 ## Prepare models
 ```shell
