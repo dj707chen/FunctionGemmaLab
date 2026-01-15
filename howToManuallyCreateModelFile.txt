@@ -1,0 +1,11 @@
+Old school: I usually manually download the gguf, then export the modelfile for the corresponding model on Ollama. Then import that gguf file from HF using the modelfile. I'm just typing from memory, so some syntax might be wrong, but the idea is:
+
+Create a modelfile based on the model from Ollama. ollama show Qwen3 --modelfile>Qwen3.modelfile
+
+Then edit the Qwen3.modelfile and point FROM to gguf file.
+
+FROM ./Qwen3-hf.gguf
+
+Then import: ollama create Qwen3-hf -f Qwen3.modelfile
+
+Then everything should be the same except the weights.

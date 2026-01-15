@@ -47,6 +47,7 @@ heapdump-*
 
 # IDE directories
 .idea/
+.vscode/
 .run/
 .history/
 

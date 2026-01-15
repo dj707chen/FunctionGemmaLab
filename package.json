@@ -1,13 +1,11 @@
 {
     "name": "mcp-server-and-client",
     "version": "1.0.0",
-    "main": "src/server.ts",
+    "main": "src/tool.ts",
     "scripts": {
         "tool": "tsx src/tool.ts",
         "server:build": "tsc",
-        "server:build:watch": "tsc --watch",
-        "server:dev": "tsx src/server.ts",
-        "server:inspect": "set DANGERROUSLY_OMIT_AUTH=true && npx @modelcontextprotocol/inspector npm run server:dev"
+        "server:build:watch": "tsc --watch"
     },
     "description": "",
     "author": "",
